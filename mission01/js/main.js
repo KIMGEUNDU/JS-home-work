@@ -1,8 +1,9 @@
-
 const user = {
-  id:'asd@naver.com',
-  pw:'spdlqj123!@'
-}
+  // id: "asd@naver.com",
+  id: "vlkoklv@naver.com",
+  // pw: "spdlqj123!@",
+  pw: "dobuk0528!",
+};
 
 /*
 
@@ -13,29 +14,50 @@ const user = {
 
 */
 
-emailReg('asdasd@naver.com') //true가 나온다. 이메일 형식이면 더 true가 나온다.
-pwReg('asdasaads4%')//6자이상 16자 이하로 사용해야하고 숫자가 1개 꼭 껴있어야한다. 특수기호가 하나라도 껴있어야한다.
+const email = document.querySelector(".user-email-input");
+const pw = document.querySelector(".user-password-input");
+const btn = document.querySelector(".btn-login");
 
+//이메일 에러메세지
+email.addEventListener("input", function () {
+  if (emailReg(email.value)) {
+    email.classList.remove("is--invalid");
+  } else if (email.value.length === 0) {
+    email.classList.remove("is--invalid");
+  } else {
+    email.classList.add("is--invalid");
+  }
+});
 
+//패스워드 에러메세지
+pw.addEventListener("input", function () {
+  if (pwReg(pw.value)) {
+    pw.classList.remove("is--invalid");
+  } else if (pw.value.length === 0) {
+    pw.classList.remove("is--invalid");
+  } else {
+    pw.classList.add("is--invalid");
+  }
+});
 
-function emailReg(text){
-  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-  return re.test(String(text).toLowerCase())
+//로그인 버튼 설정
+function loginClick(e) {
+  if (email.value === user.id && pw.value === user.pw) {
+    e.preventDefault();
+    window.location.href = "welcome.html";
+  }
 }
 
-function pwReg(text){
-  const re = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^*+=-]).{6,16}$/;
+btn.addEventListener("click", loginClick);
+
+function emailReg(text) {
+  const re =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   return re.test(String(text).toLowerCase());
 }
 
-
-
-
-
-
-
-
-
-
-
+function pwReg(text) {
+  const re = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^*+=-]).{10,25}$/;
+  return re.test(String(text).toLowerCase());
+}
