@@ -19,22 +19,22 @@ const btn = document.querySelector(".btn-login");
 //이메일 에러메세지
 email.addEventListener("input", function () {
   if (emailReg(email.value)) {
-    email.classList.remove("is--invalid");
+    this.classList.remove("is--invalid");
   } else if (email.value.length === 0) {
-    email.classList.remove("is--invalid");
+    this.classList.remove("is--invalid");
   } else {
-    email.classList.add("is--invalid");
+    this.classList.add("is--invalid");
   }
 });
 
 //패스워드 에러메세지
 pw.addEventListener("input", function () {
   if (pwReg(pw.value)) {
-    pw.classList.remove("is--invalid");
+    this.classList.remove("is--invalid");
   } else if (pw.value.length === 0) {
-    pw.classList.remove("is--invalid");
+    this.classList.remove("is--invalid");
   } else {
-    pw.classList.add("is--invalid");
+    this.classList.add("is--invalid");
   }
 });
 
@@ -44,6 +44,7 @@ function loginClick(e) {
     e.preventDefault();
     window.location.href = "welcome.html";
   } else if (email.value !== user.id && pw.value !== user.pw) {
+    e.preventDefault();
     alert("아이디와 비밀번호를 확인해주세요");
     window.location.href = "index.html";
   }
