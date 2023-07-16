@@ -1,8 +1,6 @@
 const user = {
-  // id: "asd@naver.com",
-  id: "vlkoklv@naver.com",
-  // pw: "spdlqj123!@",
-  pw: "dobuk0528!",
+  id: "asd@naver.com",
+  pw: "spdlqj123!@",
 };
 
 /*
@@ -45,6 +43,9 @@ function loginClick(e) {
   if (email.value === user.id && pw.value === user.pw) {
     e.preventDefault();
     window.location.href = "welcome.html";
+  } else if (email.value !== user.id && pw.value !== user.pw) {
+    alert("아이디와 비밀번호를 확인해주세요");
+    window.location.href = "index.html";
   }
 }
 
