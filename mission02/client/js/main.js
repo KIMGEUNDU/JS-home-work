@@ -40,6 +40,15 @@ function setImage(src, alt) {
 // 이름 변경 함수
 function setNameText(name) {
   nickName.textContent = name;
+  if (nickName.textContent === "EMBER") {
+    setCss(nickName, "color", "yellow");
+  } else if (nickName.textContent === "WADE") {
+    setCss(nickName, "color", "blue");
+  } else if (nickName.textContent === "CLOD") {
+    setCss(nickName, "color", "green");
+  } else if (nickName.textContent === "GALE") {
+    setCss(nickName, "color", "rgb(101, 15, 105)");
+  }
 }
 // 클래스 추가 함수
 function addActive(removeTarget, addTarget, className) {
