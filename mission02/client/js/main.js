@@ -14,16 +14,13 @@
   const nickName = getNode(".nickName");
   const img = getNode(".visual img");
   const body = getNode("body");
-  const audio = document.createElement("audio");
 
-  //오디오 추가 함수
   function addAudio(name) {
-    const audioSrc = `/mission02/client/assets/audio/${name.toLowerCase()}.m4a`;
+    const audioSrc = `./assets/audio/${name.toLowerCase()}.m4a`;
     const audioPlay = new AudioPlayer(audioSrc);
     audioPlay.play();
   }
 
-  //배경화면 변경 함수
   function setBgColor(color1, color2 = "#000") {
     setCss(
       body,
@@ -32,13 +29,11 @@
     );
   }
 
-  //이미지 변경 함수
   function setImage(src, alt) {
     attr(img, "src", `./assets/${src}.jpeg`);
     attr(img, "alt", `${alt}`);
   }
 
-  // 이름 변경 함수
   function setNameText(name) {
     nickName.textContent = name;
     if (nickName.textContent === "EMBER") {
@@ -51,7 +46,7 @@
       setCss(nickName, "color", "rgb(101, 15, 105)");
     }
   }
-  // 클래스 추가 함수
+
   function addActive(removeTarget, addTarget, className) {
     removeTarget.forEach((i) => {
       removeClass(i, className);
@@ -60,7 +55,6 @@
     addClass(addTarget, className);
   }
 
-  //클릭이벤트
   function handleClick(e) {
     const target = e.target.closest("li");
     if (!target) {
@@ -75,10 +69,9 @@
     setBgColor(dataIndex.color[0], dataIndex.color[1]);
     addAudio(dataIndex.name);
   }
-  // 클릭 이벤트 핸들러 등록
+
   nav.addEventListener("click", handleClick);
 
-  // 다른 함수에서도 사용할 수 있도록 필요한 변수나 함수를 반환합니다.
   return {
     addAudio,
     setBgColor,
