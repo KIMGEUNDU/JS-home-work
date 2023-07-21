@@ -2,12 +2,9 @@
 썸네일 이미지를 클릭하면 메인 이미지와 배경이 바뀔 수 있도록 코드 로직을 작성해주세요.
 
 ## 🍿 완성본 미리보기
-<iframe src="https://codesandbox.io/embed/jabaseukeuribteu-2ca-gwaje-9v7fyv?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="자바스크립트 2차 과제"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
+<img src="./client/assets/Poster.gif">
+
+[🎲 Codepen 보러가기](https://codepen.io/osceavqj-the-sans/pen/qBQyWVV)
 
 <br>
 <br>
